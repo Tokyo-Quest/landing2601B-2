@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokyoQuest | Intellectual Walking Guides</title>
+    <meta name="description" content="A self-guided historical walking tour for cultural explorers. Discover Tokyo's hidden gems using compass-based navigation. Curated by locals.">
+    
+    <!-- Fonts: Playfair Display (Headings) & Merriweather (Body) for intellectual/book feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'geo-green': '#1B3C35',       /* Deep Forest Green (Discovery/Intellectual) */
+                        'geo-paper': '#F5F5F0',       /* Warm Off-White (Editorial background) */
+                        'geo-gold': '#C19D60',        /* Antique Gold (Accent) */
+                        'geo-ink': '#2D2D2D',         /* Soft Black (Text) */
+                        'geo-stone': '#8C8C8C',       /* Neutral Grey */
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Merriweather"', 'serif'], 
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(rgba(27, 60, 53, 0.5), rgba(27, 60, 53, 0.7)), url('assets/hero_bg.jpg')",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Utilities */
+        body { font-family: "Merriweather", serif; }
+        h1, h2, h3, .font-display { font-family: "Playfair Display", serif; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+        
+        /* Refined button hover effect */
+        .btn-hover { transition: all 0.3s ease; }
+        .btn-hover:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-geo-paper text-geo-ink antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-geo-paper/95 backdrop-blur-md border-b border-geo-green/10 shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="font-display text-2xl font-bold text-geo-green tracking-wide">TokyoQuest</span>
+                <span class="text-[10px] uppercase tracking-widest text-geo-gold font-sans font-bold">Historical Walking Guides</span>
+            </div>
+            <a href="#courses" class="bg-geo-green text-white px-5 py-2 text-xs md:text-sm font-sans font-bold uppercase tracking-wider hover:bg-geo-gold hover:text-white transition duration-300 rounded-sm shadow-sm">
+                Select Area
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section (Optimized for 50s+ Target) -->
+    <section class="relative min-h-[90vh] flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed px-4">
+        <!-- Overlay for readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-geo-green/60 via-geo-green/40 to-geo-green/80"></div>
+        
+        <div class="relative text-center max-w-3xl mx-auto fade-in-up px-4 py-8 mt-12 border border-white/10 bg-black/20 backdrop-blur-sm rounded-sm">
+            <!-- Badge: Authority & Niche -->
+            <div class="inline-block border border-geo-gold/50 bg-black/40 backdrop-blur-md px-4 py-1.5 mb-6 rounded-full">
+                <span class="text-geo-gold font-sans font-bold tracking-widest text-[10px] md:text-xs uppercase">For the Culturally Curious</span>
+            </div>
+            
+            <!-- Headline: Direct & Benefit-driven -->
+            <h1 class="font-display text-4xl md:text-6xl font-bold leading-tight mb-6 text-white drop-shadow-xl">
+                See the Tokyo<br>
+                <span class="text-geo-gold italic font-serif">Most Visitors Miss.</span>
+            </h1>
+            
+            <!-- Subhead: Time modified to 30 minutes -->
+            <p class="text-base md:text-xl text-white/95 mb-8 font-sans font-light leading-relaxed max-w-xl mx-auto">
+                Stop searching. Start discovering.<br>
+                A compass-guided historical tour curated by locals. 
+                <span class="font-bold text-white border-b border-geo-gold/50">30 minutes of deep context</span>, no tourist traps.
+            </p>
+            
+            <!-- CTA: High Contrast & Action Oriented -->
+            <div class="flex flex-col gap-4 justify-center items-center">
+                <a href="#courses" class="w-full md:w-auto bg-geo-gold text-geo-ink px-8 py-4 text-base font-bold uppercase tracking-widest hover:bg-white hover:shadow-2xl transition-all duration-300 rounded-sm btn-hover border border-geo-gold shadow-lg">
+                    Start Your Walk - $12
+                </a>
+                <p class="text-white/80 text-[10px] tracking-widest uppercase font-semibold">Instant Browser Access • No App Download</p>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- Problem & Solution (Value Proposition) -->
+    <section class="py-20 px-6 bg-geo-paper relative overflow-hidden border-b border-geo-green/5">
+        <!-- Background decorative element -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-geo-green/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+        <div class="max-w-4xl mx-auto">
+            <!-- Insight: Addressing the pain point directly -->
+            <div class="text-center mb-16">
+                <h2 class="font-display text-2xl md:text-4xl text-geo-green mb-4 leading-tight">
+                    "The internet tells you where to eat.<br>We tell you what to <span class="italic text-geo-gold">feel</span>."
+                </h2>
+                <div class="w-16 h-1 bg-geo-green/20 mx-auto my-6"></div>
+                <p class="text-geo-ink/70 font-sans text-sm md:text-lg leading-relaxed max-w-2xl mx-auto">
+                    Modern travel guides are flooded with superficial "Instagram spots." 
+                    As a mature traveler, you seek depth. You want to understand the history beneath the pavement without spending hours planning.
+                </p>
+            </div>
+
+            <!-- Value Props Grid -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1: Authority -->
+                <div class="bg-white p-8 border-t-4 border-geo-green shadow-sm hover:shadow-md transition duration-300">
+                    <h3 class="font-display text-xl text-geo-green font-bold mb-3">Curated by Locals</h3>
+                    <p class="text-sm text-geo-ink/80 leading-relaxed">
+                        Don't waste steps. Our courses are researched by residents who know the dark history of Shinjuku and the silence of Harajuku.
+                    </p>
+                </div>
+                
+                <!-- Card 2: Immersion (The Mechanic) -->
+                <div class="bg-white p-8 border-t-4 border-geo-gold shadow-sm hover:shadow-md transition duration-300">
+                    <h3 class="font-display text-xl text-geo-green font-bold mb-3">Guided by Compass</h3>
+                    <p class="text-sm text-geo-ink/80 leading-relaxed">
+                        No staring at maps. We give you distance and direction. Keep your eyes on the city, not your screen, until you arrive.
+                    </p>
+                </div>
+
+                <!-- Card 3: Efficiency -->
+                <div class="bg-white p-8 border-t-4 border-geo-stone shadow-sm hover:shadow-md transition duration-300">
+                    <h3 class="font-display text-xl text-geo-green font-bold mb-3">Time Well Spent</h3>
+                    <p class="text-sm text-geo-ink/80 leading-relaxed">
+                        <!-- Time modified to 30 minutes -->
+                        Designed for 30 minutes. Rich cultural insight without the exhaustion of aimless wandering.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto text-center">
+            <span class="text-geo-gold font-bold uppercase tracking-widest text-xs">Simple Process</span>
+            <h2 class="font-display text-3xl md:text-4xl text-geo-green mt-2 mb-12">Start in 30 Seconds</h2>
+            
+            <div class="grid md:grid-cols-3 gap-10 mb-16">
+                <!-- Step 1 with Stripe Badge -->
+                <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-geo-paper rounded-full flex items-center justify-center mb-4 text-geo-green border border-geo-green/20">
+                        <span class="font-display font-bold text-xl">1</span>
+                    </div>
+                    <h3 class="font-display text-lg text-geo-green font-bold mb-2">Select & Pay</h3>
+                    <p class="text-sm text-geo-ink/70 max-w-xs mb-3">Choose your area. Pay $12 securely via Stripe. No app installation required.</p>
+                    
+                    <!-- Added Stripe Badge linked to stripe.com -->
+                    <a href="https://stripe.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition block">
+                        <img src="assets/Powered by Stripe - blurple.svg" alt="Powered by Stripe" class="h-6 mx-auto">
+                    </a>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-geo-paper rounded-full flex items-center justify-center mb-4 text-geo-green border border-geo-green/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </div>
+                    <h3 class="font-display text-lg text-geo-green font-bold mb-2">Follow the Compass</h3>
+                    <p class="text-sm text-geo-ink/70 max-w-xs">Walk towards the target. Feel the city atmosphere as you navigate.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-geo-paper rounded-full flex items-center justify-center mb-4 text-geo-green border border-geo-green/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="font-display text-lg text-geo-green font-bold mb-2">Unlock History</h3>
+                    <p class="text-sm text-geo-ink/70 max-w-xs">Arrive and unlock deep stories and old photos hidden in plain sight.</p>
+                </div>
+            </div>
+            
+            <!-- UI Preview -->
+            <div class="relative max-w-3xl mx-auto bg-geo-green rounded-lg p-6 md:p-10 shadow-xl">
+                <p class="text-white/90 font-serif italic mb-6">"Interface designed for walking, not scrolling."</p>
+                <div class="flex overflow-x-auto gap-4 pb-2 no-scrollbar snap-x justify-start md:justify-center">
+                    <!-- Replace these src with your actual screenshots -->
+                    <img src="assets/screen-01.webp" alt="Course Selection" class="snap-center w-[160px] md:w-[180px] rounded-md shadow-lg border border-white/20">
+                    <img src="assets/screen-02.webp" alt="Compass Navigation" class="snap-center w-[160px] md:w-[180px] rounded-md shadow-lg border border-white/20">
+                    <img src="assets/screen-03.webp" alt="Historical Story" class="snap-center w-[160px] md:w-[180px] rounded-md shadow-lg border border-white/20">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Preview (The Stories) -->
+    <section class="py-20 px-6 bg-geo-paper">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <span class="text-geo-gold font-bold uppercase tracking-widest text-xs">Content Sneak Peek</span>
+                    <h2 class="font-display text-3xl md:text-4xl text-geo-green mt-2">Discover the Layers of Tokyo</h2>
+                </div>
+                <a href="#courses" class="hidden md:block text-geo-green font-bold border-b border-geo-green hover:text-geo-gold hover:border-geo-gold transition mt-4 md:mt-0">See All Courses &rarr;</a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Story 1 -->
+                <div class="bg-white group hover:shadow-xl transition duration-500 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="assets/story_shinjuku.jpg" alt="Jokaku-ji Temple" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                        <div class="absolute top-0 right-0 bg-geo-green text-white text-xs px-2 py-1 m-2 font-bold">Shinjuku</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-display text-xl text-geo-green mb-3 group-hover:text-geo-gold transition-colors">The Temple of Throw-Away Souls</h3>
+                        <p class="text-geo-ink/70 text-sm leading-relaxed mb-4 flex-1">
+                            Behind the neon lights of Kabukicho lies a temple with a dark history. Discover the resting place of the "nameless" from the red-light district.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="bg-white group hover:shadow-xl transition duration-500 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="assets/story_shibuya.jpg" alt="Dogenzaka Alley" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                        <div class="absolute top-0 right-0 bg-geo-green text-white text-xs px-2 py-1 m-2 font-bold">Shibuya</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-display text-xl text-geo-green mb-3 group-hover:text-geo-gold transition-colors">Black Markets to Boutiques</h3>
+                        <p class="text-geo-ink/70 text-sm leading-relaxed mb-4 flex-1">
+                            Walk the narrow Dogenzaka alleys that defied redevelopment and retain the chaotic atmosphere of the post-war black markets.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="bg-white group hover:shadow-xl transition duration-500 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="assets/story_harajuku.jpg" alt="Togo Shrine" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                        <div class="absolute top-0 right-0 bg-geo-green text-white text-xs px-2 py-1 m-2 font-bold">Harajuku</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-display text-xl text-geo-green mb-3 group-hover:text-geo-gold transition-colors">Silence in the City</h3>
+                        <p class="text-geo-ink/70 text-sm leading-relaxed mb-4 flex-1">
+                            Steps away from the fashion hub lies a naval shrine dedicated to Admiral Togo. A sanctuary of forest and stone most shoppers miss.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#courses" class="text-geo-green font-bold border-b border-geo-green pb-1">See All Courses &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Selection (Main Conversion Area) -->
+    <section id="courses" class="py-20 px-6 bg-geo-green text-white relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-geo-gold font-bold uppercase tracking-widest text-xs">Your Journey Starts Here</span>
+                <h2 class="font-display text-3xl md:text-5xl mb-6 mt-2">Choose Your District</h2>
+                <p class="text-white/70 max-w-2xl mx-auto text-lg font-light">
+                    Pay securely via Stripe. Access immediately. <br>
+                    <span class="text-geo-gold">$12 USD</span> per course.
+                </p>
+                <a href="https://stripe.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition block">
+                        <img src="assets/Powered by Stripe - white.svg" alt="Powered by Stripe" class="h-6 mx-auto">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Shibuya -->
+                <a href="https://tokyo-quest.com/en/select?location=Shibuya" class="group relative block h-96 overflow-hidden bg-black rounded-sm hover:ring-2 hover:ring-geo-gold transition duration-300">
+                    <img src="assets/course_shibuya.jpg" alt="Shibuya" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute top-4 right-4 bg-geo-gold text-geo-ink px-3 py-1 text-xs font-bold uppercase tracking-widest shadow-md rounded-sm">$12</div>
+                    
+                    <div class="absolute bottom-0 p-6 w-full">
+                        <h3 class="font-display text-2xl text-white mb-1 group-hover:text-geo-gold transition">Shibuya</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">The Labyrinth</p>
+                        
+                        <div class="flex items-center gap-4 text-xs text-white/80 border-t border-white/20 pt-3">
+                            <!-- Time modified to 30 min -->
+                            <span class="flex items-center gap-1"><span class="text-geo-gold">⏱</span> 30 min</span>
+                            <span class="flex items-center gap-1"><span class="text-geo-gold">👣</span> 2.0 km</span>
+                        </div>
+                        <div class="mt-4 text-right">
+                             <span class="inline-block text-xs uppercase tracking-widest text-geo-gold group-hover:translate-x-1 transition-transform">Start Now &rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Shinjuku -->
+                <a href="https://tokyo-quest.com/en/select?location=Shinjuku" class="group relative block h-96 overflow-hidden bg-black rounded-sm hover:ring-2 hover:ring-geo-gold transition duration-300">
+                    <img src="assets/course_shinjuku.jpg" alt="Shinjuku" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute top-4 right-4 bg-geo-gold text-geo-ink px-3 py-1 text-xs font-bold uppercase tracking-widest shadow-md rounded-sm">$12</div>
+                    
+                    <div class="absolute bottom-0 p-6 w-full">
+                        <h3 class="font-display text-2xl text-white mb-1 group-hover:text-geo-gold transition">Shinjuku</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">Shadows of Neon</p>
+                        
+                        <div class="flex items-center gap-4 text-xs text-white/80 border-t border-white/20 pt-3">
+                            <!-- Time modified to 30 min -->
+                            <span class="flex items-center gap-1"><span class="text-geo-gold">⏱</span> 30 min</span>
+                            <span class="flex items-center gap-1"><span class="text-geo-gold">👣</span> 2.5 km</span>
+                        </div>
+                        <div class="mt-4 text-right">
+                             <span class="inline-block text-xs uppercase tracking-widest text-geo-gold group-hover:translate-x-1 transition-transform">Start Now &rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Harajuku -->
+                <a href="https://tokyo-quest.com/en/select?location=Harajuku" class="group relative block h-96 overflow-hidden bg-black rounded-sm hover:ring-2 hover:ring-geo-gold transition duration-300">
+                    <img src="assets/course_harajuku.jpg" alt="Harajuku" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute top-4 right-4 bg-geo-gold text-geo-ink px-3 py-1 text-xs font-bold uppercase tracking-widest shadow-md rounded-sm">$12</div>
+                    
+                    <div class="absolute bottom-0 p-6 w-full">
+                        <h3 class="font-display text-2xl text-white mb-1 group-hover:text-geo-gold transition">Harajuku</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">Forest & Spirit</p>
+                        
+                        <div class="flex items-center gap-4 text-xs text-white/80 border-t border-white/20 pt-3">
+                            <!-- Time modified to 30 min -->
+                            <span class="flex items-center gap-1"><span class="text-geo-gold">⏱</span> 30 min</span>
+                            <span class="flex items-center gap-1"><span class="text-geo-gold">👣</span> 1.8 km</span>
+                        </div>
+                        <div class="mt-4 text-right">
+                             <span class="inline-block text-xs uppercase tracking-widest text-geo-gold group-hover:translate-x-1 transition-transform">Start Now &rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+                 <!-- Ginza -->
+                 <a href="https://tokyo-quest.com/en/select?location=Ginza" class="group relative block h-96 overflow-hidden bg-black rounded-sm hover:ring-2 hover:ring-geo-gold transition duration-300">
+                    <img src="assets/course_ginza.jpg" alt="Ginza" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute top-4 right-4 bg-geo-gold text-geo-ink px-3 py-1 text-xs font-bold uppercase tracking-widest shadow-md rounded-sm">$12</div>
+                    
+                    <div class="absolute bottom-0 p-6 w-full">
+                        <h3 class="font-display text-2xl text-white mb-1 group-hover:text-geo-gold transition">Ginza</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">Modernity's Birth</p>
+                        
+                        <div class="flex items-center gap-4 text-xs text-white/80 border-t border-white/20 pt-3">
+                            <!-- Time modified to 30 min -->
+                            <span class="flex items-center gap-1"><span class="text-geo-gold">⏱</span> 30 min</span>
+                            <span class="flex items-center gap-1"><span class="text-geo-gold">👣</span> 2.2 km</span>
+                        </div>
+                        <div class="mt-4 text-right">
+                             <span class="inline-block text-xs uppercase tracking-widest text-geo-gold group-hover:translate-x-1 transition-transform">Start Now &rarr;</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mt-12 text-center">
+                
+                <p class="text-white/60 text-sm italic">"The real voyage of discovery consists not in seeking new landscapes, but in having new eyes."</p>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-geo-ink text-white py-12 px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm font-sans opacity-70">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <p class="font-display text-xl mb-1 tracking-wide text-geo-gold">TokyoQuest</p>
+                <p class="font-light">&copy; 2026 TokyoQuest. All rights reserved.</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8 text-center">
+                <a href="#" class="hover:text-geo-gold transition">Privacy Policy</a>
+                <a href="#" class="hover:text-geo-gold transition">Terms of Service</a>
+                <a href="#" class="hover:text-geo-gold transition">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('h2, .group');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0'; 
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
